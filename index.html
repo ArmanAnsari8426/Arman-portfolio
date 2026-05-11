@@ -1031,79 +1031,46 @@
     /* ── CARD BANNER ── */
     .project-banner {
       width: 100%;
-      height: 170px;
+      height: 180px;
       position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
       flex-shrink: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
     }
 
-    .project-banner-react {
-      background: linear-gradient(135deg, #1e1b4b 0%, #312e81 40%, rgba(6, 182, 212, .25) 100%);
+    .project-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.6;
+      transition: transform 0.5s ease, opacity 0.5s ease;
     }
 
-    .project-banner-native {
-      background: linear-gradient(135deg, #4a044e 0%, #831843 40%, rgba(245, 158, 11, .2) 100%);
+    .project-card:hover .project-banner img {
+      transform: scale(1.1);
+      opacity: 0.8;
     }
 
-    .project-banner-python {
-      background: linear-gradient(135deg, #064e3b 0%, #065f46 40%, rgba(6, 182, 212, .2) 100%);
-    }
-
-    .project-banner-js {
-      background: linear-gradient(135deg, #1c1917 0%, #292524 40%, rgba(245, 158, 11, .25) 100%);
-    }
-
-    .project-banner::before {
+    .project-banner::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-      opacity: 1;
-    }
-
-    .project-banner-glow {
-      position: absolute;
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      filter: blur(40px);
-      opacity: .45;
-      transition: opacity .35s;
-    }
-
-    .project-card:hover .project-banner-glow {
-      opacity: .75;
-    }
-
-    .project-banner-react .project-banner-glow {
-      background: var(--indigo);
-    }
-
-    .project-banner-native .project-banner-glow {
-      background: var(--pink);
-    }
-
-    .project-banner-python .project-banner-glow {
-      background: #10b981;
-    }
-
-    .project-banner-js .project-banner-glow {
-      background: var(--amber);
+      background: linear-gradient(to bottom, transparent 0%, rgba(7, 8, 15, 0.8) 100%);
     }
 
     .project-emoji {
-      font-size: 3.8rem;
-      position: relative;
-      z-index: 1;
-      filter: drop-shadow(0 0 24px rgba(255, 255, 255, .3));
-      transition: transform .35s;
+      font-size: 3.5rem;
+      position: absolute;
+      z-index: 2;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
     .project-card:hover .project-emoji {
-      transform: scale(1.12) rotate(-4deg);
+      transform: scale(1.2) translateY(-5px);
     }
 
     /* ── TYPE BADGE ── */
@@ -2131,7 +2098,8 @@
 
         <!-- 1. Sales Analytics — Python/Data -->
         <div class="project-card reveal" data-category="python">
-          <div class="project-img">
+          <div class="project-banner">
+            <img src="sales_analytics_preview_1778500151710.png" alt="Sales Analytics Dashboard">
             <span class="project-type-badge badge-python">Python</span>
             <div class="project-emoji">📈</div>
           </div>
@@ -2158,7 +2126,8 @@
 
         <!-- 2. Chat App — React -->
         <div class="project-card reveal" data-category="react">
-          <div class="project-img">
+          <div class="project-banner">
+            <img src="chat_app_preview_1778500187645.png" alt="Real-Time Chat Interface">
             <span class="project-type-badge badge-react">React</span>
             <div class="project-emoji">💬</div>
           </div>
@@ -2183,7 +2152,8 @@
 
         <!-- 3. AiLifeApp — React Native -->
         <div class="project-card reveal" data-category="native">
-          <div class="project-img">
+          <div class="project-banner">
+            <img src="ailife_app_preview_v2_1778500604493.png" alt="AI Life Manager Mockup">
             <span class="project-type-badge badge-native">React Native</span>
             <div class="project-emoji">🤖</div>
           </div>
@@ -2208,7 +2178,8 @@
 
         <!-- 4. MyEduApp — React -->
         <div class="project-card reveal" data-category="react">
-          <div class="project-img">
+          <div class="project-banner">
+            <img src="myedu_app_preview_1778500660884.png" alt="Education Platform Dashboard">
             <span class="project-type-badge badge-react">React</span>
             <div class="project-emoji">🎓</div>
           </div>
