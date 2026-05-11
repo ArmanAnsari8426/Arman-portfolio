@@ -1233,6 +1233,92 @@
       flex-shrink: 0;
     }
 
+    /* --- EDUCATION SECTION --- */
+    #education {
+      padding: 100px 0;
+      position: relative;
+    }
+
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .edu-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      backdrop-filter: blur(10px);
+    }
+
+    .edu-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(79, 70, 229, 0.1) 0%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .edu-card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(79, 70, 229, 0.4);
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .edu-card:hover::before {
+      opacity: 1;
+    }
+
+    .edu-degree {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 12px;
+      position: relative;
+    }
+
+    .edu-school {
+      font-size: 1.05rem;
+      color: var(--cyan);
+      margin-bottom: 15px;
+      font-weight: 500;
+      position: relative;
+    }
+
+    .edu-year {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      position: relative;
+    }
+
+    .edu-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 16px;
+      background: rgba(79, 70, 229, 0.15);
+      color: var(--white);
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: 1px solid rgba(79, 70, 229, 0.3);
+      position: relative;
+    }
+
 
     #contact {
       overflow: hidden
@@ -1518,6 +1604,7 @@
       <li><a href="#experience">Experience</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <a class="nav-cta" href="mailto:ansariboy8426@gmail.com">Hire Me</a>
@@ -2066,7 +2153,7 @@
         </div>
 
         <!-- 2. Chat App — React -->
-        <div class="project-card reveal">
+        <div class="project-card reveal" data-category="react">
           <div class="project-img">
             <span class="project-type-badge badge-react">React</span>
             <div class="project-emoji">💬</div>
@@ -2091,7 +2178,7 @@
         </div>
 
         <!-- 3. AiLifeApp — React Native -->
-        <div class="project-card reveal">
+        <div class="project-card reveal" data-category="native">
           <div class="project-img">
             <span class="project-type-badge badge-native">React Native</span>
             <div class="project-emoji">🤖</div>
@@ -2116,7 +2203,7 @@
         </div>
 
         <!-- 4. MyEduApp — React -->
-        <div class="project-card reveal">
+        <div class="project-card reveal" data-category="react">
           <div class="project-img">
             <span class="project-type-badge badge-react">React</span>
             <div class="project-emoji">🎓</div>
@@ -2141,7 +2228,7 @@
         </div>
 
         <!-- 5. Medical Appointment — React -->
-        <div class="project-card reveal">
+        <div class="project-card reveal" data-category="react">
           <div class="project-img">
             <span class="project-type-badge badge-react">React</span>
             <div class="project-emoji">🏥</div>
@@ -2167,7 +2254,7 @@
         </div>
 
         <!-- 6. PageTurner — React -->
-        <div class="project-card reveal">
+        <div class="project-card reveal" data-category="react">
           <div class="project-img">
             <span class="project-type-badge badge-react">React</span>
             <div class="project-emoji">📚</div>
@@ -2190,7 +2277,7 @@
             </a>
           </div>
         </div>
-        <div class="project-card reveal">
+        <div class="project-card reveal" data-category="react">
           <div class="project-img">
             <span class="project-type-badge badge-react">React</span>
             <div class="project-emoji">🎬</div>
@@ -2215,7 +2302,7 @@
         </div>
 
         <!-- 7. Love Calculator — React Native -->
-        <div class="project-card reveal">
+        <div class="project-card reveal" data-category="native">
           <div class="project-img">
             <span class="project-type-badge badge-native">React Native</span>
             <div class="project-emoji">❤️</div>
@@ -2241,7 +2328,7 @@
         </div>
 
         <!-- 8. BarcodeApp — React Native -->
-        <div class="project-card reveal">
+        <div class="project-card reveal" data-category="native">
           <div class="project-img">
             <span class="project-type-badge badge-native">React Native</span>
             <div class="project-emoji">📷</div>
@@ -2266,7 +2353,7 @@
         </div>
 
         <!-- 9. Estate Dynamic Space — React -->
-        <div class="project-card reveal">
+        <div class="project-card reveal" data-category="react">
           <div class="project-img">
             <span class="project-type-badge badge-react">React</span>
             <div class="project-emoji">🏠</div>
@@ -2292,7 +2379,7 @@
         </div>
 
         <!-- 10. Premier Property Connect — React -->
-        <div class="project-card reveal">
+        <div class="project-card reveal" data-category="react">
           <div class="project-img">
             <span class="project-type-badge badge-react">React</span>
             <div class="project-emoji">🏡</div>
@@ -2317,21 +2404,19 @@
           </div>
         </div>
 
-        <!-- 11. FightApp — React Native -->
-        <div class="project-card reveal">
+        <!-- 11. FlightApp — React Native (Flight Ticket Booking) -->
+        <div class="project-card reveal" data-category="native">
           <div class="project-img">
             <span class="project-type-badge badge-native">React Native</span>
-            <div class="project-emoji">🥊</div>
+            <div class="project-emoji">✈️</div>
           </div>
           <div class="project-body">
-            <div class="project-title">FightApp — Combat Sports Tracker</div>
-            <div class="project-desc">A React Native app for combat sports enthusiasts featuring event schedules,
-              fighter profiles, match tracking, and live scores. Built with performance in mind for a snappy,
-              native-feeling experience on Android and iOS.</div>
+            <div class="project-title">FlightApp — Ticket Booking</div>
+            <div class="project-desc">A professional Flight Ticket Booking application built with React Native. Features real-time flight search, seat selection, booking management, and a clean user interface optimized for mobile travel experiences.</div>
             <div class="project-techs">
               <span class="project-tech">React Native</span>
               <span class="project-tech">Expo</span>
-              <span class="project-tech">REST API</span>
+              <span class="project-tech">Travel API</span>
               <span class="project-tech">React Navigation</span>
             </div>
             <a class="project-link" href="https://github.com/ArmanAnsari8426/FightApp-Reactnative-" target="_blank"
@@ -2343,6 +2428,37 @@
           </div>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="container" style="max-width:1200px;margin:auto">
+      <div class="section-head reveal from-bottom">
+        <div class="section-label" style="text-align:center;display:block">Academic Background</div>
+        <h2 class="section-title" style="text-align:center">Edu<span>cation</span></h2>
+      </div>
+      <div class="edu-grid">
+        <div class="edu-card reveal from-bottom">
+          <div class="edu-degree">Bachelor of Computer Applications (BCA)</div>
+          <div class="edu-school">I.K. Gujral Punjab Technical University, Punjab</div>
+          <div class="edu-year">
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="margin-top:-2px"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+            July 2022 – July 2025 (Pursuing)
+          </div>
+          <div class="edu-badge">⭐ CGPA 7.80 / 10</div>
+        </div>
+
+        <div class="edu-card reveal from-bottom" style="transition-delay:.1s">
+          <div class="edu-degree">Senior Secondary School (Class XII)</div>
+          <div class="edu-school">B.P. Inter College</div>
+          <div class="edu-year">
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="margin-top:-2px"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+            2020 – 2022
+          </div>
+          <div class="edu-badge">📋 69.83%</div>
+        </div>
       </div>
     </div>
   </section>
