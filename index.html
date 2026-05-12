@@ -35,20 +35,32 @@
       --border: rgba(255, 255, 255, .07);
       --font-head: 'Syne', sans-serif;
       --font-body: 'DM Sans', sans-serif;
+
+      /* Fluid Typography */
+      --fs-base: clamp(0.95rem, 1vw + 0.7rem, 1.05rem);
+      --fs-h1: clamp(2.5rem, 8vw + 1rem, 5.2rem);
+      --fs-h2: clamp(1.8rem, 5vw + 1rem, 2.8rem);
+      --fs-h3: clamp(1.3rem, 3vw + 0.8rem, 1.8rem);
+      --fs-small: clamp(0.75rem, 0.5vw + 0.7rem, 0.88rem);
     }
 
     html {
-      scroll-behavior: smooth
+      scroll-behavior: smooth;
+      font-size: 16px; /* Base for rem */
     }
 
     body {
       background: var(--bg);
       color: var(--text);
       font-family: var(--font-body);
-      font-size: 16px;
-      line-height: 1.7;
+      font-size: var(--fs-base);
+      line-height: 1.6;
       overflow-x: hidden;
       cursor: none;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      width: 100%;
+      position: relative;
     }
 
     body::before {
@@ -91,7 +103,7 @@
 
     .loader-logo {
       font-family: var(--font-head);
-      font-size: clamp(2rem, 6vw, 4rem);
+      font-size: var(--fs-h1);
       font-weight: 800;
       background: linear-gradient(90deg, var(--indigo-l), var(--pink), var(--cyan), var(--amber));
       background-size: 300%;
@@ -294,9 +306,9 @@
 
     .hero-name {
       font-family: var(--font-head);
-      font-size: clamp(2.8rem, 6.5vw, 5.2rem);
+      font-size: var(--fs-h1);
       font-weight: 800;
-      line-height: 1.05;
+      line-height: 1.1;
       letter-spacing: -.03em;
       background: linear-gradient(90deg, #fff 0%, var(--indigo-l) 25%, var(--pink) 50%, var(--cyan) 75%, var(--amber) 100%);
       background-size: 300%;
@@ -309,7 +321,7 @@
 
     .hero-role {
       font-family: var(--font-head);
-      font-size: clamp(1rem, 2.2vw, 1.45rem);
+      font-size: var(--fs-h3);
       font-weight: 600;
       color: var(--muted);
       margin-bottom: 20px;
@@ -323,9 +335,10 @@
     .hero-desc {
       max-width: 560px;
       color: rgba(180, 176, 210, .85);
-      font-size: 1.02rem;
+      font-size: 1.05rem;
       margin-bottom: 38px;
-      line-height: 1.9;
+      line-height: 1.8;
+      overflow-wrap: break-word;
     }
 
     .hero-ctas {
@@ -547,10 +560,10 @@
 
     .section-title {
       font-family: var(--font-head);
-      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      font-size: var(--fs-h2);
       font-weight: 800;
       letter-spacing: -.03em;
-      line-height: 1.1;
+      line-height: 1.2;
       margin-bottom: 16px;
     }
 
@@ -639,7 +652,7 @@
 
     .card-stat .num {
       font-family: var(--font-head);
-      font-size: 2.5rem;
+      font-size: var(--fs-h1);
       font-weight: 800;
       background: linear-gradient(90deg, var(--indigo-l), var(--cyan));
       -webkit-background-clip: text;
@@ -663,7 +676,8 @@
     .about-text p {
       color: var(--muted);
       margin-bottom: 16px;
-      line-height: 1.85;
+      line-height: 1.8;
+      overflow-wrap: break-word;
     }
 
     .about-chips {
@@ -905,167 +919,6 @@
       top: 3px;
     }
 
-    /* PROJECTS */
-    #projects {
-      padding: 100px 0;
-      background: radial-gradient(ellipse 60% 50% at 20% 50%, rgba(236, 72, 153, .05) 0%, transparent 70%);
-    }
-
-    .projects-filter {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 40px;
-      flex-wrap: wrap;
-    }
-
-    .filter-btn {
-      padding: 9px 22px;
-      border-radius: 99px;
-      font-size: .82rem;
-      font-weight: 600;
-      border: 1px solid rgba(255, 255, 255, .09);
-      background: rgba(255, 255, 255, .03);
-      color: var(--muted);
-      cursor: none;
-      transition: all .3s;
-      font-family: var(--font-body);
-      backdrop-filter: blur(6px);
-    }
-
-    .filter-btn.active {
-      background: linear-gradient(135deg, var(--indigo), var(--pink));
-      border-color: transparent;
-      color: #fff;
-      box-shadow: 0 4px 20px rgba(79, 70, 229, .4);
-    }
-
-    .filter-btn:hover:not(.active) {
-      background: rgba(79, 70, 229, .12);
-      border-color: rgba(79, 70, 229, .35);
-      color: var(--indigo-l);
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 22px;
-    }
-
-    .project-card {
-      background: linear-gradient(160deg, rgba(13, 12, 30, .95), rgba(18, 17, 42, .85));
-      border: 1px solid rgba(255, 255, 255, .08);
-      border-radius: 20px;
-      overflow: hidden;
-      transition: transform .4s cubic-bezier(.4, 0, .2, 1), box-shadow .4s, border-color .4s;
-      position: relative;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, .3);
-    }
-
-    .project-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--indigo), var(--pink), var(--cyan));
-      opacity: 0;
-      transition: opacity .4s;
-    }
-
-    .project-card:hover {
-      transform: translateY(-8px);
-      border-color: rgba(79, 70, 229, .4);
-      box-shadow: 0 30px 80px rgba(0, 0, 0, .4), 0 0 0 1px rgba(79, 70, 229, .2);
-    }
-
-    .project-card:hover::before {
-      opacity: 1;
-    }
-
-    .project-img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .project-img-placeholder {
-      width: 100%;
-      height: 160px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-    }
-
-    .project-body {
-      padding: 26px;
-    }
-
-    .project-name {
-      font-family: var(--font-head);
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .project-desc {
-      color: var(--muted);
-      font-size: .88rem;
-      line-height: 1.72;
-      margin-bottom: 16px;
-    }
-
-    .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-bottom: 16px;
-    }
-
-    .tag {
-      padding: 3px 11px;
-      border-radius: 99px;
-      font-size: .72rem;
-      font-weight: 500;
-      background: rgba(79, 70, 229, .12);
-      border: 1px solid rgba(79, 70, 229, .25);
-      color: var(--indigo-l);
-    }
-
-    .tag.pink {
-      background: rgba(236, 72, 153, .12);
-      border-color: rgba(236, 72, 153, .25);
-      color: var(--pink);
-    }
-
-    .tag.cyan {
-      background: rgba(6, 182, 212, .12);
-      border-color: rgba(6, 182, 212, .25);
-      color: var(--cyan);
-    }
-
-    .tag.amber {
-      background: rgba(245, 158, 11, .12);
-      border-color: rgba(245, 158, 11, .25);
-      color: var(--amber);
-    }
-
-    .project-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: .82rem;
-      font-weight: 600;
-      color: var(--indigo-l);
-      transition: color .3s;
-    }
-
-    .project-link:hover {
-      color: var(--cyan);
-    }
 
     /* EDUCATION */
     #education {
@@ -2335,8 +2188,8 @@
     }
 
 
-    /* ── ALL-FEATURED PROJECT CARDS ───────────────────────── */
-    .pf-grid {
+    /* ── PROJECTS GRID ───────────────────────── */
+    .projects-grid {
       display: flex;
       flex-direction: column;
       gap: 24px;
@@ -2481,17 +2334,18 @@
     }
 
     .pf-name {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.55rem;
+      font-family: var(--font-head);
+      font-size: var(--fs-h3);
       font-weight: 800;
       letter-spacing: -.025em;
-      line-height: 1.1;
+      line-height: 1.2;
     }
 
     .pf-desc {
       color: rgba(175, 170, 210, .8);
-      font-size: .9rem;
-      line-height: 1.82;
+      font-size: var(--fs-small);
+      line-height: 1.7;
+      overflow-wrap: break-word;
     }
 
     .pf-tags {
@@ -2708,11 +2562,14 @@
       }
 
       .nav-links a {
-        font-size: 1.5rem;
-        font-family: 'Syne', sans-serif;
+        font-size: 1.6rem;
+        font-family: var(--font-head);
         font-weight: 700;
         color: var(--text);
         letter-spacing: -.01em;
+        padding: 10px 0;
+        width: 100%;
+        display: block;
       }
 
       .nav-burger {
@@ -2771,6 +2628,7 @@
         width: 100%;
         max-width: 320px;
         justify-content: center;
+        min-height: 48px; /* Touch friendly */
       }
 
       /* ABOUT */
@@ -2793,7 +2651,7 @@
       }
 
       .card-stat .num {
-        font-size: 2rem;
+        font-size: var(--fs-h2);
       }
 
       /* SKILLS */
@@ -4152,107 +4010,6 @@
     }
 
     // ── PROJECTS DATA ──
-    const PROJECTS = [
-      {
-        name: 'Moviex',
-        desc: 'Movie discovery & booking platform — search films, browse showtimes, view cast details, pick seats, and purchase tickets digitally. Built with TMDB API, Redux, and React Router. Real-time seat availability with responsive grid layout.',
-        tags: ['React.js', 'TMDB API', 'Redux', 'React Router', 'SCSS'],
-        cat: 'web', emoji: '🎬',
-        lang: 'JavaScript', langColor: '#f1e05a',
-        c1: '#4a0520', c2: '#831843',
-        url: 'https://github.com/ArmanAnsari8426/Moviex'
-      },
-      {
-        name: 'Chat Apps',
-        desc: 'Real-time multi-room chat app — instant messaging, user presence, typing indicators, and message history. WebSocket-powered with clean chat bubble UI and mobile-responsive layout.',
-        tags: ['React.js', 'WebSockets', 'Node.js', 'Real-time'],
-        cat: 'web', emoji: '💬',
-        lang: 'JavaScript', langColor: '#f1e05a',
-        c1: '#083344', c2: '#0e7490',
-        url: 'https://github.com/ArmanAnsari8426/Chat-Apps'
-      },
-      {
-        name: 'AiLifeApp',
-        desc: 'AI-powered React Native lifestyle companion — smart daily recommendations, habit tracking, and wellness insights. Integrates an AI API for personalised suggestions with smooth animated screens.',
-        tags: ['React Native', 'AI API', 'Redux', 'Animations', 'iOS/Android'],
-        cat: 'mobile', emoji: '🤖',
-        lang: 'JavaScript', langColor: '#f1e05a',
-        c1: '#1e1b4b', c2: '#312e81',
-        url: 'https://github.com/ArmanAnsari8426/AiLifeApp'
-      },
-      {
-        name: 'Love Calculator App',
-        desc: 'Fun React Native app with smooth entrance animations, haptic feedback, shareable result cards, and a history log. A polished showcase of mobile UX with Reanimated transitions.',
-        tags: ['React Native', 'Reanimated', 'Haptics', 'iOS/Android'],
-        cat: 'mobile', emoji: '💖',
-        lang: 'JavaScript', langColor: '#f1e05a',
-        c1: '#4a0520', c2: '#9d174d',
-        url: 'https://github.com/ArmanAnsari8426/LoveCalculatorApp'
-      },
-      {
-        name: 'MyEduApp',
-        desc: 'Full-featured educational React Native platform — course browsing, video lessons, quiz modules with scoring, and student progress tracking. Clean tabbed navigation with persistent state.',
-        tags: ['React Native', 'Education', 'Redux', 'Navigation v6'],
-        cat: 'mobile', emoji: '🎓',
-        lang: 'JavaScript', langColor: '#f1e05a',
-        c1: '#451a03', c2: '#92400e',
-        url: 'https://github.com/ArmanAnsari8426/MyEduApp'
-      },
-      {
-        name: 'Medical Appointment',
-        desc: 'Healthcare scheduling web app — patients browse doctors by specialty, book time slots, receive email confirmations, and manage upcoming appointments from a personal dashboard.',
-        tags: ['React.js', 'Calendar API', 'REST', 'CSS3'],
-        cat: 'web', emoji: '🏥',
-        lang: 'JavaScript', langColor: '#f1e05a',
-        c1: '#022c22', c2: '#065f46',
-        url: 'https://github.com/ArmanAnsari8426/Medical-Appointment'
-      },
-      {
-        name: 'PageTurner',
-        desc: 'Book discovery web app using Open Library API — search by title or author, view synopses, ratings, publication info, and build a personal reading list with progress tracker.',
-        tags: ['React.js', 'Open Library API', 'Material-UI', 'Node.js'],
-        cat: 'web', emoji: '📚',
-        lang: 'JavaScript', langColor: '#f1e05a',
-        c1: '#1e1b4b', c2: '#4338ca',
-        url: 'https://github.com/ArmanAnsari8426/PageTurner'
-      },
-      {
-        name: 'BarcodeApp',
-        desc: 'React Native barcode & QR scanner — instant camera scan, product lookup, scan history log, and one-tap share. Smooth scan animation with flashlight toggle for low-light scanning.',
-        tags: ['React Native', 'Camera', 'Barcode', 'AsyncStorage'],
-        cat: 'mobile', emoji: '📱',
-        lang: 'JavaScript', langColor: '#f1e05a',
-        c1: '#083344', c2: '#155e75',
-        url: 'https://github.com/ArmanAnsari8426/BarcodeApp'
-      },
-      {
-        name: 'FlightApp (React Native)',
-        desc: 'Cross-platform flight booking mobile app — search by route and date, compare prices, choose seats on an interactive map, and manage bookings. Animated transitions and offline-friendly caching.',
-        tags: ['React Native', 'Flight API', 'Seat Picker', 'Animations'],
-        cat: 'mobile', emoji: '✈️',
-        lang: 'JavaScript', langColor: '#f1e05a',
-        c1: '#1e3a5f', c2: '#1d4ed8',
-        url: 'https://github.com/ArmanAnsari8426/FightApp-Reactnative-'
-      },
-      {
-        name: 'Estate Dynamic Space',
-        desc: 'Real estate listing platform — dynamic property search with location, price, and type filters. Interactive map integration, property gallery sliders, and enquiry forms.',
-        tags: ['React.js', 'Maps API', 'Property Search', 'CSS3'],
-        cat: 'web', emoji: '🏠',
-        lang: 'JavaScript', langColor: '#f1e05a',
-        c1: '#1c1917', c2: '#44403c',
-        url: 'https://github.com/ArmanAnsari8426/estate-dynamic-space'
-      },
-      {
-        name: 'Premier Property Connect',
-        desc: 'Premium property portal connecting buyers, sellers, and agents — enquiry management, high-res property galleries, agent profiles, and a sophisticated filtered search experience.',
-        tags: ['React.js', 'REST API', 'Tailwind', 'Responsive'],
-        cat: 'web', emoji: '🏢',
-        lang: 'JavaScript', langColor: '#f1e05a',
-        c1: '#0f172a', c2: '#1e293b',
-        url: 'https://github.com/ArmanAnsari8426/premier-property-connect'
-      },
-    ];
 
     const CAT_LABEL = { web: '🌐 Web App', mobile: '📱 React Native', data: '📊 Data' };
 
@@ -4410,136 +4167,7 @@
         return `
     <a href="${p.url}" target="_blank"
        class="pf-card ${rev} reveal from-bottom"
-       style="--border-top:${p.borderTop};text-decoration:none;color:inherit;transition-delay:${i * 0.04}s">
-      <style>.pf-card:nth-child(${i + 1})::before{background:${p.borderTop};}
-/* ── MOBILE NAV ENHANCED ─────────────────── */
-.nav-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;
-  width:32px;height:32px;align-items:center;justify-content:center;
-  border-radius:8px;transition:background .2s;
-  -webkit-tap-highlight-color:transparent;}
-.nav-burger:active{background:rgba(255,255,255,.08);}
-.nav-burger span{
-  display:block;width:22px;height:2px;
-  background:var(--text);border-radius:2px;
-  transition:transform .3s ease,opacity .3s ease,width .3s ease;
-  transform-origin:center;
-}
-.nav-burger.open #b1{transform:translateY(7px) rotate(45deg);}
-.nav-burger.open #b2{opacity:0;width:0;}
-.nav-burger.open #b3{transform:translateY(-7px) rotate(-45deg);}
-
-/* nav overlay backdrop */
-.nav-backdrop{
-  display:none;position:fixed;inset:0;
-  background:rgba(0,0,0,.4);z-index:898;
-  backdrop-filter:blur(2px);
-}
-.nav-backdrop.open{display:block;}
-
-/* nav close X inside overlay */
-.nav-close-btn{
-  display:none;position:absolute;top:20px;right:20px;
-  width:40px;height:40px;border-radius:50%;
-  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);
-  align-items:center;justify-content:center;
-  font-size:1.2rem;cursor:pointer;color:var(--text);
-  -webkit-tap-highlight-color:transparent;
-}
-@media(max-width:768px){
-  .nav-close-btn{display:flex;}
-  .nav-links{position:fixed;}
-}
-
-/* safe area insets for notched phones */
-@supports(padding-top:env(safe-area-inset-top)){
-  nav{padding-top:calc(18px + env(safe-area-inset-top));}
-  #hero{padding-top:calc(120px + env(safe-area-inset-top));}
-  footer{padding-bottom:calc(22px + env(safe-area-inset-bottom));}
-}
-
-/* Touch-friendly tap targets — min 44px */
-.filter-btn,.exp-tab,.contact-link,.btn{min-height:44px;}
-.nav-links a{min-height:44px;display:flex;align-items:center;}
-
-/* Prevent text size adjustment on rotation */
-html{-webkit-text-size-adjust:100%;text-size-adjust:100%;}
-
-/* Smooth scrolling momentum on iOS */
-body{-webkit-overflow-scrolling:touch;}
-
-/* Project card — fix on mobile (no hover transform) */
-@media(max-width:768px){
-  .pf-card::before{opacity:1 !important;}
-}
-
-
-/* ── MOBILE UX POLISH ───────────────────────────────── */
-
-/* Prevent horizontal overflow everywhere */
-*{max-width:100%;}
-img,canvas,iframe,video{max-width:100%;height:auto;}
-
-/* hero mobile centering */
-@media(max-width:768px){
-  #heroLeft{align-items:center !important;text-align:center;}
-  .hero-tag{justify-content:center;}
-  .hero-role{text-align:center;}
-  .about-chips{justify-content:center;}
-}
-
-/* Exp card mobile */
-@media(max-width:600px){
-  .exp-card{padding:20px 18px;}
-  .exp-role{font-size:1rem;}
-  .exp-meta{font-size:.78rem;}
-  .exp-list li{font-size:.85rem;padding-left:16px;}
-  .timeline{padding-left:20px;}
-  .timeline-item::before{left:-25px;}
-}
-
-/* Skills bars mobile */
-@media(max-width:600px){
-  .skill-bar-label{font-size:.82rem;}
-  .skill-group-title{font-size:.88rem;}
-}
-
-/* Education mobile */
-@media(max-width:480px){
-  .edu-card{padding:22px 18px;}
-  .edu-degree{font-size:.95rem;}
-  .edu-badge{font-size:.75rem;padding:3px 12px;}
-}
-
-/* Why hire mobile */
-@media(max-width:480px){
-  .why-hire{padding:20px 16px;}
-  .why-num{font-size:1.6rem;}
-  .why-label{font-size:.85rem;}
-  .why-sub{font-size:.78rem;}
-}
-
-/* Marquee pause on touch */
-@media(pointer:coarse){
-  .marquee-track:active{animation-play-state:paused;}
-}
-
-/* Footer mobile */
-@media(max-width:480px){
-  footer{font-size:.78rem;padding:20px 0;}
-}
-
-/* overflow fix */
-html,body{overflow-x:hidden;}
-.container{overflow-x:hidden;}
-
-/* better link tap area on mobile */
-@media(max-width:768px){
-  .pf-card .pf-link-btn{
-    width:100%;justify-content:center;
-  }
-}
-
-</style>
+       style="--border-top:${p.borderTop};text-decoration:none;color:inherit;transition-delay:${i * 0.08}s">
       <div class="pf-visual" style="background:${p.bg};">
         <div class="pf-cat-pill">${p.badge}</div>
         <span class="pf-visual-emoji">${p.emoji}</span>
@@ -4566,13 +4194,6 @@ html,body{overflow-x:hidden;}
 
     renderProjects('all');
 
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        renderProjects(btn.dataset.filter);
-      });
-    });
 
     document.querySelectorAll('.filter-btn').forEach(btn => {
       btn.addEventListener('click', () => {
