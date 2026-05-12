@@ -308,7 +308,25 @@
       min-height: 100vh;
       display: flex;
       align-items: center;
-      padding: 120px 0 80px;
+      padding: 140px 0 100px;
+      position: relative;
+    }
+
+    .hero-glow {
+      position: absolute;
+      top: 20%;
+      right: 10%;
+      width: 40vw;
+      height: 40vw;
+      background: radial-gradient(circle, rgba(79, 70, 229, 0.15) 0%, transparent 70%);
+      filter: blur(60px);
+      z-index: -1;
+      animation: float-glow 10s ease-in-out infinite alternate;
+    }
+
+    @keyframes float-glow {
+      from { transform: translate(0, 0); }
+      to { transform: translate(-5%, 10%); }
     }
 
     .hero-grid {
@@ -348,15 +366,16 @@
       font-family: var(--font-head);
       font-size: var(--fs-h1);
       font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -.03em;
-      background: linear-gradient(90deg, #fff 0%, var(--indigo-l) 25%, var(--pink) 50%, var(--cyan) 75%, var(--amber) 100%);
-      background-size: 300%;
+      line-height: 1;
+      letter-spacing: -.04em;
+      background: linear-gradient(135deg, #fff 20%, var(--indigo-l) 50%, var(--cyan) 80%);
+      background-size: 200% auto;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      animation: shimmer 4s linear infinite;
-      margin-bottom: 12px;
+      animation: shimmer 5s linear infinite;
+      margin-bottom: 16px;
+      filter: drop-shadow(0 0 20px rgba(79, 70, 229, 0.2));
     }
 
     .hero-role {
@@ -383,8 +402,37 @@
 
     .hero-ctas {
       display: flex;
-      gap: 14px;
+      gap: 16px;
       flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      width: fit-content;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .stat-val {
+      font-family: var(--font-head);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .stat-lbl {
+      font-size: .75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .05em;
     }
 
     .btn {
@@ -1333,6 +1381,17 @@
 
       .hero-ctas {
         flex-direction: column;
+      }
+
+      .hero-stats {
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+      }
+
+      .stat-item {
+        align-items: center;
       }
 
       .btn {
@@ -3654,6 +3713,7 @@
   </nav>
 
   <section id="hero">
+    <div class="hero-glow"></div>
     <div class="container">
       <div class="hero-grid">
         <div class="hero-left" id="heroLeft">
@@ -3670,6 +3730,20 @@
           <div class="hero-ctas reveal from-bottom" style="transition-delay:.4s">
             <a href="#projects" class="btn btn-primary">View Projects</a>
             <a href="#contact" class="btn btn-outline">Get in Touch</a>
+          </div>
+          <div class="hero-stats reveal from-bottom" style="transition-delay:.5s">
+            <div class="stat-item">
+              <div class="stat-val">1+ Yr</div>
+              <div class="stat-lbl">Experience</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-val">12+</div>
+              <div class="stat-lbl">Projects</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-val">10K+</div>
+              <div class="stat-lbl">Users Impacted</div>
+            </div>
           </div>
         </div>
         <div class="hero-avatar reveal from-right" style="transition-delay:.3s">
