@@ -19,6 +19,10 @@
       padding: 0
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     :root {
       --bg: #06050f;
       --surface: #0d0c1ecc;
@@ -177,7 +181,8 @@
 
     section {
       position: relative;
-      z-index: 1
+      z-index: 1;
+      scroll-margin-top: 80px;
     }
 
     /* NAV */
@@ -192,9 +197,9 @@
     }
 
     nav.scrolled {
-      background: rgba(6, 5, 15, .88);
+      background: rgba(6, 5, 15, .92);
       backdrop-filter: blur(20px);
-      box-shadow: 0 1px 0 var(--border);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, .5), 0 1px 0 var(--border);
     }
 
     .nav-inner {
@@ -247,6 +252,28 @@
 
     .nav-links a:hover::after {
       width: 100%
+    }
+
+    .nav-hire-btn {
+      padding: 10px 22px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--indigo), var(--pink));
+      color: #fff !important;
+      font-size: .85rem;
+      font-weight: 700;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      box-shadow: 0 4px 15px rgba(79, 70, 229, .3);
+      transition: all .3s;
+      border: none;
+      text-decoration: none;
+      margin-left: 10px;
+    }
+
+    .nav-hire-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(79, 70, 229, .5);
+      filter: brightness(1.1);
     }
 
     .nav-burger {
@@ -1186,6 +1213,12 @@
 
       .nav-links.open {
         display: flex;
+      }
+
+      .nav-hire-btn {
+        margin-left: 0;
+        text-align: center;
+        margin-top: 10px;
       }
 
       .nav-burger {
@@ -3506,6 +3539,7 @@
         <a href="#projects">Projects</a>
         <a href="#education">Education</a>
         <a href="#contact">Contact</a>
+        <a href="#contact" class="nav-hire-btn">Hire Me</a>
       </div>
       <div class="nav-burger" id="burger" onclick="toggleMenu()" aria-label="Menu">
         <span id="b1"></span><span id="b2"></span><span id="b3"></span>
