@@ -19,10 +19,6 @@
       padding: 0
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     :root {
       --bg: #06050f;
       --surface: #0d0c1ecc;
@@ -48,9 +44,17 @@
       --fs-small: clamp(0.75rem, 0.5vw + 0.7rem, 0.88rem);
     }
 
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      width: 100%;
+      position: relative;
+    }
+
     html {
-      scroll-behavior: smooth;
-      font-size: 16px; /* Base for rem */
+      font-size: 16px;
     }
 
     body {
@@ -176,13 +180,15 @@
     .container {
       max-width: 1160px;
       margin: 0 auto;
-      padding: 0 24px
+      padding: 0 24px;
+      overflow-x: hidden;
     }
 
     section {
       position: relative;
       z-index: 1;
       scroll-margin-top: 80px;
+      overflow-x: clip;
     }
 
     /* NAV */
@@ -604,6 +610,99 @@
       margin-bottom: 52px;
     }
 
+    /* SERVICES */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+      gap: 24px;
+    }
+
+    .service-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px;
+      transition: all .4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      border-color: var(--indigo-l);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, .4);
+    }
+
+    .service-icon {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      display: inline-block;
+      background: linear-gradient(135deg, var(--indigo), var(--pink));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .service-title {
+      font-family: var(--font-head);
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .service-desc {
+      color: var(--muted);
+      font-size: .95rem;
+      line-height: 1.6;
+    }
+
+    /* TESTIMONIALS */
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+      gap: 24px;
+    }
+
+    .testi-card {
+      background: rgba(255, 255, 255, .03);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px;
+      position: relative;
+    }
+
+    .testi-quote {
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--text);
+      margin-bottom: 24px;
+      line-height: 1.7;
+    }
+
+    .testi-author {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .testi-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--border);
+    }
+
+    .testi-info .name {
+      font-weight: 700;
+      font-size: .95rem;
+      display: block;
+    }
+
+    .testi-info .role {
+      font-size: .8rem;
+      color: var(--muted);
+    }
+
     /* ABOUT */
     #about {
       padding: 100px 0;
@@ -954,7 +1053,7 @@
 
     .edu-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
       gap: 22px;
     }
 
@@ -3637,6 +3736,42 @@
     </div>
   </section>
 
+  <section id="services">
+    <div class="container">
+      <div class="section-head reveal from-bottom">
+        <div class="section-label">Solutions</div>
+        <h2 class="section-title">What I Do</h2>
+        <p class="section-subtitle">Transforming ideas into high-performance digital products across web and mobile.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal from-bottom">
+          <div class="service-icon">🌐</div>
+          <h3 class="service-title">Web Development</h3>
+          <p class="service-desc">Building fast, SEO-friendly, and responsive web applications using React.js and modern
+            ecosystems.</p>
+        </div>
+        <div class="service-card reveal from-bottom" style="transition-delay:.1s">
+          <div class="service-icon">📱</div>
+          <h3 class="service-title">Mobile App Dev</h3>
+          <p class="service-desc">Creating polished cross-platform iOS and Android apps with React Native for a seamless
+            native feel.</p>
+        </div>
+        <div class="service-card reveal from-bottom" style="transition-delay:.2s">
+          <div class="service-icon">📊</div>
+          <h3 class="service-title">Data Analytics</h3>
+          <p class="service-desc">Turning messy data into actionable insights through Power BI dashboards and automated
+            Python scripts.</p>
+        </div>
+        <div class="service-card reveal from-bottom" style="transition-delay:.3s">
+          <div class="service-icon">✍️</div>
+          <h3 class="service-title">Technical Writing</h3>
+          <p class="service-desc">Translating complex systems into clear, readable API documentation and developer
+            guides.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="skills">
     <div class="container">
       <div class="section-head reveal from-bottom">
@@ -3979,6 +4114,39 @@
           <div class="edu-school">SMDYHSS, Deoria</div>
           <div class="edu-year">2019 – 2020</div>
           <div class="edu-badge">📋 71.83%</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="testimonials">
+    <div class="container">
+      <div class="section-head reveal from-bottom text-center">
+        <div class="section-label">Feedback</div>
+        <h2 class="section-title">Client & Peer Reviews</h2>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card reveal from-bottom">
+          <p class="testi-quote">"Arman is exceptionally fast and detail-oriented. He handled our frontend migration
+            flawlessly and hit every deadline."</p>
+          <div class="testi-author">
+            <div class="testi-avatar"></div>
+            <div class="testi-info">
+              <span class="name">Senior Engineer</span>
+              <span class="role">Meander Software</span>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card reveal from-bottom" style="transition-delay:.1s">
+          <p class="testi-quote">"The documentation Arman wrote for our API saved our team weeks of back-and-forth
+            clarifications. Highly professional."</p>
+          <div class="testi-author">
+            <div class="testi-avatar"></div>
+            <div class="testi-info">
+              <span class="name">Project Manager</span>
+              <span class="role">Client Partner</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
