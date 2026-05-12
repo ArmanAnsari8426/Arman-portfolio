@@ -310,30 +310,34 @@
       align-items: center;
       padding: 140px 0 100px;
       position: relative;
+      overflow: hidden; /* Prevent glow overflow */
     }
 
     .hero-glow {
       position: absolute;
-      top: 20%;
-      right: 10%;
-      width: 40vw;
-      height: 40vw;
-      background: radial-gradient(circle, rgba(79, 70, 229, 0.15) 0%, transparent 70%);
-      filter: blur(60px);
-      z-index: -1;
-      animation: float-glow 10s ease-in-out infinite alternate;
+      top: 50%;
+      right: -5%;
+      width: 550px;
+      height: 550px;
+      background: radial-gradient(circle, rgba(79, 70, 229, 0.1) 0%, transparent 70%);
+      filter: blur(90px);
+      z-index: 0;
+      pointer-events: none;
+      animation: float-glow 15s ease-in-out infinite alternate;
     }
 
     @keyframes float-glow {
-      from { transform: translate(0, 0); }
-      to { transform: translate(-5%, 10%); }
+      from { transform: translate(0, -50%) scale(1); }
+      to { transform: translate(-10%, -40%) scale(1.1); }
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 56px;
+      grid-template-columns: 1fr 400px;
+      gap: 40px;
       align-items: center;
+      position: relative;
+      z-index: 2;
     }
 
     .hero-tag {
@@ -478,9 +482,10 @@
     /* AVATAR PHOTO */
     .hero-avatar {
       position: relative;
-      width: 230px;
-      height: 230px;
+      width: 320px;
+      height: 320px;
       flex-shrink: 0;
+      justify-self: end;
     }
 
     .ripple-ring {
