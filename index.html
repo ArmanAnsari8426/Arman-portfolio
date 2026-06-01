@@ -2455,9 +2455,15 @@
 
     /* ── PROJECTS GRID ───────────────────────── */
     .projects-grid {
-      display: flex;
-      flex-direction: column;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 24px;
+    }
+
+    @media(max-width:980px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     .pf-card {
@@ -4163,9 +4169,10 @@
       </div>
 
       <div class="projects-grid" id="projectsGrid">
-        <a class="pf-card reveal from-bottom" href="https://nexora-labs-ai-student-ecosystem-alqy88uep.vercel.app" target="_blank" rel="noopener">
-          <div class="pf-visual">
-            <div class="pf-visual-emoji">🧠</div>
+        <div class="pf-card reveal from-bottom">
+          <div class="pf-visual" style="background:linear-gradient(135deg,#18182f 0%,#2b2460 100%);">
+            <div class="pf-cat-pill">AI Ecosystem</div>
+            <span class="pf-visual-emoji">🧠</span>
           </div>
           <div class="pf-body">
             <div class="pf-badge">Featured</div>
@@ -4176,16 +4183,17 @@
               <span class="pf-tag">AI</span>
               <span class="pf-tag">Vercel</span>
             </div>
-            <div style="margin-top:12px">
+            <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:12px;">
               <a class="pf-link-btn" href="https://nexora-labs-ai-student-ecosystem-alqy88uep.vercel.app" target="_blank" rel="noopener">Live Demo</a>
-              <a class="pf-link-btn" href="https://github.com/ArmanAnsari8426/NEXORA-LABS-AI-Student-Ecosystem" target="_blank" rel="noopener" style="margin-left:12px">Source on GitHub</a>
+              <a class="pf-link-btn" href="https://github.com/ArmanAnsari8426/NEXORA-LABS-AI-Student-Ecosystem" target="_blank" rel="noopener">Source on GitHub</a>
             </div>
           </div>
-        </a>
+        </div>
 
-        <a class="pf-card reveal from-bottom reverse" href="https://ai-powered-coding-platform.vercel.app/" target="_blank" rel="noopener">
-          <div class="pf-visual">
-            <div class="pf-visual-emoji">💻</div>
+        <div class="pf-card reveal from-bottom reverse">
+          <div class="pf-visual" style="background:linear-gradient(135deg,#0d1321 0%,#3b1f5f 100%);">
+            <div class="pf-cat-pill">AI Platform</div>
+            <span class="pf-visual-emoji">💻</span>
           </div>
           <div class="pf-body">
             <div class="pf-badge">Featured</div>
@@ -4196,12 +4204,253 @@
               <span class="pf-tag">AI</span>
               <span class="pf-tag">Vercel</span>
             </div>
-            <div style="margin-top:12px">
+            <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:12px;">
               <a class="pf-link-btn" href="https://ai-powered-coding-platform.vercel.app/" target="_blank" rel="noopener">Live Demo</a>
-              <a class="pf-link-btn" href="https://github.com/ArmanAnsari8426/CodeNova-AI" target="_blank" rel="noopener" style="margin-left:12px">Source on GitHub</a>
+              <a class="pf-link-btn" href="https://github.com/ArmanAnsari8426/CodeNova-AI" target="_blank" rel="noopener">Source on GitHub</a>
             </div>
           </div>
-        </a>
+        </div>
+
+        <div class="pf-card reveal from-bottom">
+          <div class="pf-visual" style="background:linear-gradient(135deg,#1d1d27 0%,#2a4b1d 100%);">
+            <div class="pf-cat-pill">Data Analytics</div>
+            <span class="pf-visual-emoji">📊</span>
+          </div>
+          <div class="pf-body">
+            <div class="pf-badge">Web App</div>
+            <div class="pf-name">Sales Analytics Dashboard</div>
+            <div class="pf-desc">End-to-end data pipeline with interactive Power BI dashboards, reducing manual reporting time by 60%.</div>
+            <div class="pf-tags">
+              <span class="pf-tag">Power BI</span>
+              <span class="pf-tag">Python</span>
+              <span class="pf-tag">Pandas</span>
+              <span class="pf-tag">DAX</span>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:12px;">
+              <a class="pf-link-btn" href="https://github.com/ArmanAnsari8426/Sales-Analytics-Project" target="_blank" rel="noopener">View Source</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pf-card reveal from-bottom reverse">
+          <div class="pf-visual" style="background:linear-gradient(135deg,#140d21 0%,#5b1357 100%);">
+            <div class="pf-cat-pill">Web App</div>
+            <span class="pf-visual-emoji">🎬</span>
+          </div>
+          <div class="pf-body">
+            <div class="pf-badge">Web App</div>
+            <div class="pf-name">Moviex — Movie Booking App</div>
+            <div class="pf-desc">TMDB-powered discovery and booking app with seat selection and Redux-powered booking flows.</div>
+            <div class="pf-tags">
+              <span class="pf-tag">React.js</span>
+              <span class="pf-tag">TMDB API</span>
+              <span class="pf-tag">Redux</span>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:12px;">
+              <a class="pf-link-btn" href="https://github.com/ArmanAnsari8426/Moviex" target="_blank" rel="noopener">View Source</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pf-card reveal from-bottom">
+          <div class="pf-visual" style="background:linear-gradient(135deg,#05121e 0%,#0f3a4d 100%);">
+            <div class="pf-cat-pill">Web App</div>
+            <span class="pf-visual-emoji">💬</span>
+          </div>
+          <div class="pf-body">
+            <div class="pf-badge">Web App</div>
+            <div class="pf-name">Chat Apps — Real-Time Messenger</div>
+            <div class="pf-desc">Multi-room chat with live presence, typing indicators and WebSocket-powered real-time backend.</div>
+            <div class="pf-tags">
+              <span class="pf-tag">React.js</span>
+              <span class="pf-tag">WebSockets</span>
+              <span class="pf-tag">Node.js</span>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:12px;">
+              <a class="pf-link-btn" href="https://github.com/ArmanAnsari8426/Chat-Apps" target="_blank" rel="noopener">View Source</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pf-card reveal from-bottom reverse">
+          <div class="pf-visual" style="background:linear-gradient(135deg,#130a10 0%,#3a1246 100%);">
+            <div class="pf-cat-pill">React Native</div>
+            <span class="pf-visual-emoji">🤖</span>
+          </div>
+          <div class="pf-body">
+            <div class="pf-badge">Mobile App</div>
+            <div class="pf-name">AiLifeApp — AI Lifestyle Companion</div>
+            <div class="pf-desc">React Native lifestyle companion with AI recommendations, habit tracking, and animated onboarding.</div>
+            <div class="pf-tags">
+              <span class="pf-tag">React Native</span>
+              <span class="pf-tag">AI API</span>
+              <span class="pf-tag">Redux</span>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:12px;">
+              <a class="pf-link-btn" href="https://github.com/ArmanAnsari8426/AiLifeApp" target="_blank" rel="noopener">View Source</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pf-card reveal from-bottom">
+          <div class="pf-visual" style="background:linear-gradient(135deg,#1b0b10 0%,#5a1e36 100%);">
+            <div class="pf-cat-pill">React Native</div>
+            <span class="pf-visual-emoji">🎓</span>
+          </div>
+          <div class="pf-body">
+            <div class="pf-badge">Mobile App</div>
+            <div class="pf-name">MyEduApp — Education Platform</div>
+            <div class="pf-desc">Course browsing, video lessons, quiz modules, and student progress tracking in a polished React Native app.</div>
+            <div class="pf-tags">
+              <span class="pf-tag">React Native</span>
+              <span class="pf-tag">React Navigation</span>
+              <span class="pf-tag">Redux</span>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:12px;">
+              <a class="pf-link-btn" href="https://github.com/ArmanAnsari8426/MyEduApp" target="_blank" rel="noopener">View Source</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pf-card reveal from-bottom reverse">
+          <div class="pf-visual" style="background:linear-gradient(135deg,#0b1420 0%,#1d3f7e 100%);">
+            <div class="pf-cat-pill">React Native</div>
+            <span class="pf-visual-emoji">✈️</span>
+          </div>
+          <div class="pf-body">
+            <div class="pf-badge">Mobile App</div>
+            <div class="pf-name">FlightApp — Flight Booking</div>
+            <div class="pf-desc">Cross-platform flight search with seat selection, offline caching, and smooth React Native navigation.</div>
+            <div class="pf-tags">
+              <span class="pf-tag">React Native</span>
+              <span class="pf-tag">Flight API</span>
+              <span class="pf-tag">Offline</span>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:12px;">
+              <a class="pf-link-btn" href="https://github.com/ArmanAnsari8426/FightApp-Reactnative-" target="_blank" rel="noopener">View Source</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pf-card reveal from-bottom">
+          <div class="pf-visual" style="background:linear-gradient(135deg,#051a10 0%,#0a553d 100%);">
+            <div class="pf-cat-pill">Web App</div>
+            <span class="pf-visual-emoji">🏥</span>
+          </div>
+          <div class="pf-body">
+            <div class="pf-badge">Web App</div>
+            <div class="pf-name">Medical Appointment Booking</div>
+            <div class="pf-desc">Healthcare scheduling app with calendar booking, patient dashboard, and appointment management.</div>
+            <div class="pf-tags">
+              <span class="pf-tag">React.js</span>
+              <span class="pf-tag">Calendar API</span>
+              <span class="pf-tag">REST</span>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:12px;">
+              <a class="pf-link-btn" href="https://github.com/ArmanAnsari8426/Medical-Appointment" target="_blank" rel="noopener">View Source</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pf-card reveal from-bottom reverse">
+          <div class="pf-visual" style="background:linear-gradient(135deg,#121129 0%,#303c72 100%);">
+            <div class="pf-cat-pill">Web App</div>
+            <span class="pf-visual-emoji">📚</span>
+          </div>
+          <div class="pf-body">
+            <div class="pf-badge">Web App</div>
+            <div class="pf-name">PageTurner — Book Discovery</div>
+            <div class="pf-desc">Book discovery platform powered by Open Library API with reading tracker and personal lists.</div>
+            <div class="pf-tags">
+              <span class="pf-tag">React.js</span>
+              <span class="pf-tag">Open Library API</span>
+              <span class="pf-tag">Responsive</span>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:12px;">
+              <a class="pf-link-btn" href="https://github.com/ArmanAnsari8426/PageTurner" target="_blank" rel="noopener">View Source</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pf-card reveal from-bottom">
+          <div class="pf-visual" style="background:linear-gradient(135deg,#03131c 0%,#0f536f 100%);">
+            <div class="pf-cat-pill">Mobile App</div>
+            <span class="pf-visual-emoji">📱</span>
+          </div>
+          <div class="pf-body">
+            <div class="pf-badge">React Native</div>
+            <div class="pf-name">BarcodeApp — QR & Barcode Scanner</div>
+            <div class="pf-desc">Camera-based QR and barcode scanner with history log, product lookup, and share functionality.</div>
+            <div class="pf-tags">
+              <span class="pf-tag">React Native</span>
+              <span class="pf-tag">Camera</span>
+              <span class="pf-tag">AsyncStorage</span>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:12px;">
+              <a class="pf-link-btn" href="https://github.com/ArmanAnsari8426/BarcodeApp" target="_blank" rel="noopener">View Source</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pf-card reveal from-bottom reverse">
+          <div class="pf-visual" style="background:linear-gradient(135deg,#220b1e 0%,#7a214f 100%);">
+            <div class="pf-cat-pill">Mobile App</div>
+            <span class="pf-visual-emoji">💖</span>
+          </div>
+          <div class="pf-body">
+            <div class="pf-badge">React Native</div>
+            <div class="pf-name">Love Calculator App</div>
+            <div class="pf-desc">Fun animated React Native app with haptic feedback, score sharing, and charming transition effects.</div>
+            <div class="pf-tags">
+              <span class="pf-tag">React Native</span>
+              <span class="pf-tag">Reanimated 2</span>
+              <span class="pf-tag">Haptics</span>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:12px;">
+              <a class="pf-link-btn" href="https://github.com/ArmanAnsari8426/LoveCalculatorApp" target="_blank" rel="noopener">View Source</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pf-card reveal from-bottom">
+          <div class="pf-visual" style="background:linear-gradient(135deg,#111113 0%,#44413b 100%);">
+            <div class="pf-cat-pill">Web App</div>
+            <span class="pf-visual-emoji">🏠</span>
+          </div>
+          <div class="pf-body">
+            <div class="pf-badge">Web App</div>
+            <div class="pf-name">Estate Dynamic Space</div>
+            <div class="pf-desc">Real estate listing platform with dynamic search, interactive map views, and gallery sliders.</div>
+            <div class="pf-tags">
+              <span class="pf-tag">React.js</span>
+              <span class="pf-tag">Maps API</span>
+              <span class="pf-tag">Tailwind</span>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:12px;">
+              <a class="pf-link-btn" href="https://github.com/ArmanAnsari8426/estate-dynamic-space" target="_blank" rel="noopener">View Source</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pf-card reveal from-bottom reverse">
+          <div class="pf-visual" style="background:linear-gradient(135deg,#050911 0%,#24354f 100%);">
+            <div class="pf-cat-pill">Web App</div>
+            <span class="pf-visual-emoji">🏢</span>
+          </div>
+          <div class="pf-body">
+            <div class="pf-badge">Web App</div>
+            <div class="pf-name">Premier Property Connect</div>
+            <div class="pf-desc">Premium property portal with agent profiles, enquiries, and advanced search for buyers and sellers.</div>
+            <div class="pf-tags">
+              <span class="pf-tag">React.js</span>
+              <span class="pf-tag">REST API</span>
+              <span class="pf-tag">Tailwind</span>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:12px;">
+              <a class="pf-link-btn" href="https://github.com/ArmanAnsari8426/premier-property-connect" target="_blank" rel="noopener">View Source</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
