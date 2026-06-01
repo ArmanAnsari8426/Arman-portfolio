@@ -2682,6 +2682,84 @@
       color: rgba(255, 255, 255, .75);
     }
 
+    /* Enhanced card visuals */
+    .pf-card {
+      perspective: 1200px;
+      transform-style: preserve-3d;
+      border-radius: 20px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: 0 18px 50px rgba(2,6,23,0.6);
+    }
+
+    .pf-card .pf-visual,
+    .pf-card .pf-body {
+      transition: transform .45s cubic-bezier(.2,.9,.2,1), box-shadow .45s;
+      transform-origin: center;
+      will-change: transform;
+    }
+
+    .pf-card:hover {
+      transform: translateY(-10px) scale(1.01);
+      box-shadow: 0 40px 110px rgba(2,6,23,0.7), 0 0 0 1px rgba(255,255,255,0.03);
+    }
+
+    .pf-card:hover .pf-visual {
+      transform: translateZ(28px) rotateY(6deg) rotateX(3deg);
+    }
+
+    .pf-card:hover .pf-body {
+      transform: translateZ(14px) rotateY(-4deg);
+    }
+
+    .pf-name {
+      background-image: linear-gradient(90deg, rgba(255,255,255,0.92), rgba(255,255,255,0.6));
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .pf-badge {
+      border-color: rgba(255,255,255,0.08);
+      background: linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      color: rgba(230,230,250,0.95);
+    }
+
+    .pf-link-btn {
+      background: linear-gradient(90deg, var(--indigo-l), var(--cyan));
+      color: #fff;
+      border: none;
+      box-shadow: 0 8px 24px rgba(79,70,229,0.18);
+    }
+
+    .projects-count-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .filter-btn {
+      padding: 9px 14px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.04);
+      color: var(--muted);
+      transition: all .25s;
+    }
+
+    .filter-btn.active {
+      background: linear-gradient(90deg, rgba(109,99,255,0.15), rgba(6,182,212,0.08));
+      color: #fff;
+      border-color: rgba(109,99,255,0.25);
+      box-shadow: 0 8px 30px rgba(79,70,229,0.12);
+    }
+
     @media(max-width:900px) {
 
       .pf-card,
@@ -4158,7 +4236,10 @@
           <p class="section-subtitle">12 real projects — web apps, cross-platform mobile &amp; data dashboards. Click
             any card to view source.</p>
         </div>
-        <span class="projects-count-badge">⭐ 12 Repositories</span>
+        <div style="display:flex; align-items:center; gap:12px;">
+          <span class="projects-count-badge">⭐ 12 Repositories</span>
+          <a class="btn btn-primary" href="https://github.com/ArmanAnsari8426?tab=repositories" target="_blank" rel="noopener">View All on GitHub</a>
+        </div>
       </div>
 
       <div class="projects-filter reveal from-bottom">
